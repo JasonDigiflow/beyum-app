@@ -1,26 +1,109 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --beyum-blue: #00B4D8;
+    --beyum-blue-light: #48CAE4;
+    --beyum-green: #52D726;
+    --beyum-green-light: #7FE548;
+    --beyum-orange: #FF6B35;
+    --beyum-orange-light: #FFA05C;
+    
+    --dark-bg: #0F172A;
+    --dark-card: #1E293B;
+    --dark-border: #334155;
+  }
+  
+  * {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-slate-50 to-white dark:from-dark-bg dark:to-slate-900 text-slate-900 dark:text-dark-text transition-colors duration-300;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-beyum-blue to-beyum-green text-white font-bold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-dark-card rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-beyum-blue focus:border-transparent transition-all duration-300;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-gradient-to-r from-beyum-blue to-beyum-green text-white shadow-lg;
+  }
+  
+  .sidebar-item-inactive {
+    @apply hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300;
+  }
+  
+  .kpi-card {
+    @apply bg-white dark:bg-dark-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6;
+  }
+  
+  .section-title {
+    @apply text-3xl font-black text-gray-900 dark:text-white mb-2;
+  }
+  
+  .section-subtitle {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+}
+
+@layer utilities {
+  .blur-gradient {
+    filter: blur(40px);
+    opacity: 0.7;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-beyum-blue via-beyum-green to-beyum-orange bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Loading animation */
+.loading-spinner {
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
