@@ -30,15 +30,15 @@ export default function LoginPage() {
       transition={{ duration: 0.5 }}
       className="relative z-10 w-full max-w-md"
     >
-      <div className="bg-white dark:bg-dark-card rounded-3xl shadow-2xl p-8">
+      <div className="bg-white rounded-3xl shadow-2xl p-8" style={{backgroundColor: 'white'}}>
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-gradient-to-r from-beyum-blue to-beyum-green rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{background: 'linear-gradient(to right, #00B4D8, #52D726)'}}>
               <span className="text-white font-black text-2xl">B</span>
             </div>
-            <span className="text-3xl font-black text-beyum-orange">BEYUM</span>
-            <span className="text-sm bg-beyum-green/20 text-beyum-green px-2 py-1 rounded-full font-semibold">ERP</span>
+            <span className="text-3xl font-black" style={{color: '#FF6B35'}}>BEYUM</span>
+            <span className="text-sm px-2 py-1 rounded-full font-semibold" style={{backgroundColor: 'rgba(82, 215, 38, 0.2)', color: '#52D726'}}>ERP</span>
           </div>
         </div>
 
@@ -100,7 +100,7 @@ export default function LoginPage() {
               <input type="checkbox" className="w-4 h-4 text-beyum-blue rounded focus:ring-beyum-blue" />
               <span className="text-sm text-gray-600 dark:text-gray-400">Se souvenir de moi</span>
             </label>
-            <Link href="/forgot-password" className="text-sm font-semibold text-beyum-blue hover:underline">
+            <Link href="/forgot-password" className="text-sm font-semibold hover:underline" style={{color: '#00B4D8'}}>
               Mot de passe oublié ?
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function LoginPage() {
         </form>
 
         {/* Demo credentials */}
-        <div className="mt-6 p-4 bg-beyum-blue/10 rounded-xl">
+        <div className="mt-6 p-4 rounded-xl" style={{backgroundColor: 'rgba(0, 180, 216, 0.1)'}}>
           <p className="text-xs text-center text-gray-600 dark:text-gray-400">
             <strong>Demo :</strong> Utilisez n'importe quel email/mot de passe
           </p>
@@ -145,7 +145,8 @@ export default function LoginPage() {
           </p>
           <Link
             href="/register"
-            className="inline-flex items-center gap-2 text-beyum-blue font-semibold hover:underline"
+            className="inline-flex items-center gap-2 font-semibold hover:underline"
+            style={{color: '#00B4D8'}}
           >
             <Sparkles size={16} />
             Créer un compte gratuit
@@ -156,15 +157,15 @@ export default function LoginPage() {
       {/* Benefits */}
       <div className="mt-8 grid grid-cols-3 gap-4 text-center">
         <div className="space-y-2">
-          <div className="text-2xl font-black text-beyum-blue">0€</div>
+          <div className="text-2xl font-black" style={{color: '#00B4D8'}}>0€</div>
           <p className="text-xs text-gray-600 dark:text-gray-400">Investissement</p>
         </div>
         <div className="space-y-2">
-          <div className="text-2xl font-black text-beyum-green">+40%</div>
+          <div className="text-2xl font-black" style={{color: '#52D726'}}>+40%</div>
           <p className="text-xs text-gray-600 dark:text-gray-400">CA moyen</p>
         </div>
         <div className="space-y-2">
-          <div className="text-2xl font-black text-beyum-orange">24/7</div>
+          <div className="text-2xl font-black" style={{color: '#FF6B35'}}>24/7</div>
           <p className="text-xs text-gray-600 dark:text-gray-400">Support</p>
         </div>
       </div>

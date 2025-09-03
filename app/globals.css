@@ -17,53 +17,160 @@
   }
   
   * {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-300;
+    background-color: #f9fafb;
+    color: #111827;
+    transition-property: color, background-color;
+    transition-duration: 300ms;
+  }
+  
+  .dark body {
+    background-color: var(--dark-bg);
+    color: #f3f4f6;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-beyum-blue to-beyum-green text-white font-bold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #00B4D8, #52D726);
+    color: white;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    transition: all 300ms;
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
   }
   
   .btn-secondary {
-    @apply px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors;
+    padding: 0.75rem 1.5rem;
+    background-color: #f3f4f6;
+    color: #374151;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: background-color 300ms;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #e5e7eb;
+  }
+  
+  .dark .btn-secondary {
+    background-color: #1f2937;
+    color: #d1d5db;
+  }
+  
+  .dark .btn-secondary:hover {
+    background-color: #374151;
   }
   
   .card {
-    @apply bg-white dark:bg-dark-card rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 300ms;
+  }
+  
+  .card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .card {
+    background-color: var(--dark-card);
   }
   
   .input-field {
-    @apply w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-beyum-blue focus:border-transparent transition-all duration-300;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    transition: all 300ms;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+    outline: 2px solid #00B4D8;
+    outline-offset: 2px;
+  }
+  
+  .dark .input-field {
+    background-color: #1f2937;
+    border-color: #374151;
   }
   
   .sidebar-item {
-    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    transition: all 300ms;
   }
   
   .sidebar-item-active {
-    @apply bg-gradient-to-r from-beyum-blue to-beyum-green text-white shadow-lg;
+    background: linear-gradient(to right, #00B4D8, #52D726);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
   
   .sidebar-item-inactive {
-    @apply hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300;
+    color: #374151;
+  }
+  
+  .sidebar-item-inactive:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .dark .sidebar-item-inactive {
+    color: #d1d5db;
+  }
+  
+  .dark .sidebar-item-inactive:hover {
+    background-color: #1f2937;
   }
   
   .kpi-card {
-    @apply bg-white dark:bg-dark-card rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: all 300ms;
+  }
+  
+  .kpi-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .kpi-card {
+    background-color: var(--dark-card);
   }
   
   .section-title {
-    @apply text-3xl font-black text-gray-900 dark:text-white mb-2;
+    font-size: 1.875rem;
+    font-weight: 900;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dark .section-title {
+    color: white;
   }
   
   .section-subtitle {
-    @apply text-gray-600 dark:text-gray-400;
+    color: #4b5563;
+  }
+  
+  .dark .section-subtitle {
+    color: #9ca3af;
   }
 }
 
@@ -74,7 +181,11 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-beyum-blue via-beyum-green to-beyum-orange bg-clip-text text-transparent;
+    background: linear-gradient(to right, #00B4D8, #52D726, #FF6B35);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 }
 
