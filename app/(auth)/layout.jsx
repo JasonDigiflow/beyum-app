@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function AuthLayout({ children }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-dark-bg dark:to-slate-900 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-96 h-96 bg-beyum-blue/20 rounded-full blur-gradient animate-pulse"></div>
